@@ -1,3 +1,13 @@
+public enum Day{
+    ראשון,
+    שני,
+    שלישי,
+    רביעי,
+    חמישי,
+    שישי,
+    שבת
+}
+
 public class MyDate {
     private int day;
     private int month;
@@ -40,7 +50,7 @@ public class MyDate {
     }
 
     public String getDate(char c){
-        return day+""+c+month+c+year;
+        return Day.day+""+c+month+c+year;
     }
 
 
