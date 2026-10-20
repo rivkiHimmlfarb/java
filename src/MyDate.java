@@ -1,25 +1,28 @@
-public enum Day{
-    ראשון,
-    שני,
-    שלישי,
-    רביעי,
-    חמישי,
-    שישי,
-    שבת
-}
 
 public class MyDate {
     private int day;
     private int month;
     private int year;
+private int dayOfWeek;
 
-    public MyDate(int day, int month, int year) {
+    public MyDate(int day, int month, int year, int dayOfWeek) {
         this.setDay(day);
         this.setMonth(month);
         this.setYear(year);
+        this.setDayOfWeek(dayOfWeek);
     }
+
     public MyDate() {
         MyDate myDate = new MyDate();
+    }
+
+    public int getDayOfWeek()
+    {
+        return dayOfWeek;
+    }
+    public void setDayOfWeek(int dayOfWeek)
+    {
+        this.dayOfWeek = dayOfWeek;
     }
 
     public int getDay() {
@@ -28,7 +31,7 @@ public class MyDate {
 
     public void setDay(int day) {
         if(day>=1 && day<=12)
-        this.day = day;
+            this.day = day;
     }
 
     public int getMonth() {
@@ -37,7 +40,7 @@ public class MyDate {
 
     public void setMonth(int month) {
         if(month>=1 && month<=12)
-        this.month = month;
+            this.month = month;
     }
 
     public int getYear() {
@@ -46,11 +49,12 @@ public class MyDate {
 
     public void setYear(int year) {
         if(year>=1 &&year<=9999)
-        this.year = year;
+            this.year = year;
     }
 
+
     public String getDate(char c){
-        return Day.day+""+c+month+c+year;
+        return "day: "+ Day.values()[dayOfWeek-1]+" "+day+""+c+month+c+year;
     }
 
 
