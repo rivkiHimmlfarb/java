@@ -4,8 +4,8 @@ public class MyTime extends MyDate{
     int hour;
 
 
-    public MyTime(int day, int month, int year, int second, int minute, int hour) {
-        super(day, month, year);
+    public MyTime(int day, int month, int year, int second, int minute, int hour,int dayOfWeek) {
+        super(day, month, year,dayOfWeek);
         this.second = second;
         this.minute = minute;
         this.hour = hour;
@@ -13,19 +13,10 @@ public class MyTime extends MyDate{
 
     @Override
     public String getDate(char c){
-        StringBuilder sb = new StringBuilder();
-        sb.append(getDay());
-        sb.append(c);
-        sb.append(getMonth());
-        sb.append(c);
-        sb.append(getYear());
-        sb.append(" ");
-        sb.append(hour);
-        sb.append(c);
-        sb.append(minute);
-        sb.append(c);
-        sb.append(second);
-        return sb.toString();
+       String  s="";
+       s+=super.getDate(c);
+       s+=" "+hour+""+c+""+minute+""+c+""+second;
+return s;
     }
     public String getDate(char c1,char c2){
         StringBuilder sb = new StringBuilder();
@@ -43,4 +34,3 @@ public class MyTime extends MyDate{
         return sb.toString();
     }
 }
-
